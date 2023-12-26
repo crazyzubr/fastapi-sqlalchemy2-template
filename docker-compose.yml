@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: someapp
+    build: ./
+    volumes:
+      - ./:/srv/someapp
+      - /srv/someapp/.venv
+    ports:
+      - 8074:8095
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://some_user:somepassw@postgres-db:5432/some_db
+    depends_on:
+      - postgres-db
+  postgres-db:
+    image: postgres:15.3
+    container_name: postgres-db
+    environment:
+      - POSTGRES_HOST=postgres-db
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=some_user
+      - POSTGRES_PASSWORD=somepassw
+      - POSTGRES_DB=some_db
+  postgres-testdb:
+    image: postgres:15.3
+    container_name: postgres-testdb
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_HOST=postgres-testdb
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=some_user
+      - POSTGRES_PASSWORD=somepassw
+      - POSTGRES_DB=some_testdb

@@ -1,0 +1,8 @@
+fastapi
+sqlmodel
+alembic
+asyncpg
+uvicorn
+python-dotenv
+bcrypt
+pytz

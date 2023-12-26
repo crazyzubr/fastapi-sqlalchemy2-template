@@ -1,0 +1,44 @@
+# Compiled files
+__pycache__/
+*.pyc
+
+# Utility caches
+/.pytest_cache/
+
+# Setuptools
+/*.egg-info/
+/*.dist-info/
+/build/
+/dist/
+/del/
+/static/
+/photo/
+/xls/
+/img/
+
+# Environments
+/.venv/
+/venv/
+
+# Local config
+/core/config.py
+/media/
+
+/.idea/
+*.sqlite
+manage_.sh
+
+# js
+#package-lock.json
+
+# Front
+/node_modules
+
+*.p12
+*.pem
+local.py
+
+.vscode/settings.json
+
+.DS_Store
+/.env
